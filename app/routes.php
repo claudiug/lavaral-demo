@@ -18,10 +18,23 @@ Route::get('/', function()
 
 Route::get("/about", function()
 {
-  return "this is the about page";
+  return View::make("about");
 });
 
 Route::get("/contact", function(){
-  return "this is contact page";
+  return View::make('contact');
+});
+
+Route::post("/contact", function(){
+  $data = Input::all();
+  $rules = [
+            'subject'=> 'required',
+            'message'=> 'required'];
+$validator = Validator::make($data, $rules);
+
+if ($validator->fails()) {
+  return Redirect::to('contact')->withErrors($validator)->withInput();
+}
+return 'message was sent!';
 });
 
