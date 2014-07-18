@@ -13,6 +13,15 @@
 
 Route::get('/', function()
 {
-	return View::make('hello');
+  return View::make('home');
+});
+
+Route::get("/about", function()
+{
+  return "this is the about page";
+});
+
+Route::get("/contact", function(){
+  return "this is contact page";
 });
 
