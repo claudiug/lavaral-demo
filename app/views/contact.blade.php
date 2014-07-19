@@ -1,6 +1,7 @@
 @extends('layout')
 @section('content')
   <h1>Contact US</h1>
+  {{ HTML::ul($errors->all(), ['class' => 'errors']) }}
   {{ Form::open(['url' => 'contact'])}}
   {{ Form::label('subject')}}
   {{ Form::text('subject', "enter your subject") }}
